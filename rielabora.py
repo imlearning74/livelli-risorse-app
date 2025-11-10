@@ -55,7 +55,7 @@ if uploaded_file:
                     'Divisione': base_record['Divisione'],
                 }
 
-                for i in range(7):
+                for i in range(10):
                     new_record[f'Livello_{i+1}'] = unique_units[i] if i < len(unique_units) else ''
 
                 new_rows.append(new_record)
@@ -76,3 +76,4 @@ if uploaded_file:
             )
     except Exception as e:
         st.error(f"❌ Errore durante l'elaborazione del file: {e}")
+
