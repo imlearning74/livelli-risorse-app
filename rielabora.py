@@ -67,7 +67,10 @@ if uploaded_file:
 
             # Prepara il file per il download
             output = BytesIO()
-            new_df.to_excel(output, index=False)
+            with pd.ExcelWriter(output, engine='openpyxl') as writer:
+            new_df.to_excel(writer, index=False, sheet_name='Rielaborato')
+            output.seek(0)
+
             st.download_button(
                 label="📥 Scarica il file trasformato",
                 data=output.getvalue(),
@@ -76,4 +79,5 @@ if uploaded_file:
             )
     except Exception as e:
         st.error(f"❌ Errore durante l'elaborazione del file: {e}")
+
 
