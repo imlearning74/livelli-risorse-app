@@ -76,18 +76,3 @@ if uploaded_file:
             )
     except Exception as e:
         st.error(f"❌ Errore durante l'elaborazione del file: {e}")
-
-    }
-    
-    new_rows.append(new_record)
-
-# Crea il nuovo DataFrame
-new_df = pd.DataFrame(new_rows)
-
-# Salva il risultato in un nuovo file Excel
-new_df.to_excel('Report_Livelli_Risorse_Riorganizzato tot_102025.xlsx', index=False)
-
-print("Trasformazione completata! File salvato come 'Report_Livelli_Risorse_Riorganizzato tot_102025.xlsx'")
-print(f"Numero originale di righe: {len(df)}")
-
-print(f"Numero di righe dopo trasformazione: {len(new_df)}")
